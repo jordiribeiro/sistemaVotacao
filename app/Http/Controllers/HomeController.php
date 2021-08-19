@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 /**Models**/
 use App\Opcoes;
-
+use App\Temas;
 class HomeController extends Controller
 {
     /**
@@ -28,13 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $temas = Opcoes::select(DB::raw('SUM(qtde) as "total", temas.titulo	'))
-        ->join('temas', 'opcoes.tema_id','=', 'temas.id')
-        ->where('duracao','>=', Carbon::now())
-        ->groupBy('tema_id','temas.id','temas.user_id','temas.titulo')
-        ->havingRaw('total > 0')
-        ->orderBy('total', 'desc')->get();
-
+        $temas = Temas::orderBy('created_at','desc')->get();
         return view('home')->with('temas', $temas);
     }
 }
