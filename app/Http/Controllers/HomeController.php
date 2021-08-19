@@ -31,4 +31,8 @@ class HomeController extends Controller
         $temas = Temas::orderBy('created_at','desc')->get();
         return view('home')->with('temas', $temas);
     }
+    public function quantidade(){
+        $temasqtd =Temas::orderBy('created_at','desc')->whereNull('deleted_at')->get()->count();
+        return $temasqtd;
+    }
 }

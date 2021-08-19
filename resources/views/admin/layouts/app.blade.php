@@ -61,6 +61,7 @@
                                     <li role="presentation"><a href="{!! url('painel/listar-temas') !!}">Listar Temas</a></li>
                                     <li role="presentation"><a href="{!! url('painel/listar-removidos') !!}">Listar Removidos</a></li>
                                     <li role="presentation"><a href="{!! url('/') !!}">Voltar Para O Site</a></li>
+                                    <li role="presentation"><a>Quantidade de Enquetes: <span id="qtd"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,6 +83,18 @@
     <!-- Scripts -->
     <!--<script src="{{ asset('js/app.js') }}"></script>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        setInterval(
+        $.ajax({
+            type:"GET",
+            url: '/quantidade'
+        }).done(function(msg){
+            $('#qtd').append(msg)
+        }),5000);
+    </script> 
+
 </body>
 
 </html>

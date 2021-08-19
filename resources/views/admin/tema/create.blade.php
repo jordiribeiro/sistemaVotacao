@@ -23,14 +23,14 @@
 
   <div class="form-group">
     <label for="">Duração:</label>
-    <input type="text" class="form-control" name="duracao">
-    <p class="help-block">Digite o tempo de duração para a votação.<br>Exemplo: 22-10-2021 16:00</p>
+    <input type="datetime-local" class="form-control" required="required" name="duracao">
+    <p class="help-block">Digite o tempo de duração para a enquete.<br>Exemplo: 22-10-2021 16:00</p>
   </div>
 
   <div class="form-group">
     <label for="">Opções:</label>
     <input type="text" class="form-control" name="opcoes">
-    <p class="help-block">Digite as opções para a votação separando por vírgula(,).<br>Exemplo: opção,opção2.</p>
+    <p class="help-block">Digite as opções para a enquete separadas por ,<br>Exemplo: opção,opção2.</p>
   </div>
 
   <button type="submit" class="btn btn-success">Adicionar</button>

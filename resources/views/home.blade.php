@@ -3,13 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h2 class="text-center">As enquetes mais votadas.</h2>
+        <h2 class="text-center">Enquetes Cadastradas</h2>
         <?php foreach ($temas as $key => $value): ?>
           <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
                   
                   <div class="panel-heading">
-                    <span class="h4">Titulo:</span> {{$value->titulo}} | <span class="h4">Data Inicio:</span> {{$value->created_at}} 
+                    <span class="h3">Titulo:{{$value->titulo}} </span> 
+                    <div>
+                    <span class="h5">Data Inicio:</span> {{$value->created_at}}  | <span class="h5">Data Fim:</span> {{$value->duracao}}
+                    </div> 
                   </div>
                   <div class="panel-body">
                       {{$value->descricao}}
